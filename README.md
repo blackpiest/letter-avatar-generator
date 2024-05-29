@@ -1,6 +1,5 @@
 # letter-avatar-generator
-
-## Description
+[![npm](https://img.shields.io/npm/v/letter-avatar-generator)](https://www.npmjs.com/package/letter-avatar-generator)
 
 The function allows you to generate an image with the first character of a string in Base64 format. A background color is assigned to each Cyrillic or Latin character. `#757575` is used as a fallback background for other characters. You can use the parameters to set your own background color or gradient, as well as the image size and text color.
 
