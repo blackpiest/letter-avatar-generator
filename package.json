@@ -1,13 +1,21 @@
 {
   "name": "letter-avatar-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "An avatar generator with the first letter of the name encoded in base64.",
+  "keywords": [
+    "avatar",
+    "letter avatar",
+    "canvas",
+    "base64",
+    "generate avatar",
+    "color avatar"
+  ],
   "main": "dist/index.ts",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
-  "author": "",
+  "author": "efgor",
   "license": "ISC",
   "devDependencies": {
     "typescript": "^5.4.5",
