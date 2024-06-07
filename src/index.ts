@@ -1,14 +1,21 @@
 import { getColor } from "./lib/getColor";
 
+interface FontSettings {
+  ratio?: number;
+  family?: string;
+  weight?: number;
+}
+
 export interface LetterAvatarConfig {
   content: string;
   backgroundColor?: string;
   color?: string;
   backgroundGradient?: string[];
   size?: number;
+  font?: FontSettings
 }
 
-export function generateLetterAvatar({ content, backgroundColor, backgroundGradient, color, size = 120 }: LetterAvatarConfig): string {
+export function generateLetterAvatar({ content, backgroundColor, backgroundGradient, color, size = 120, font }: LetterAvatarConfig): string {
   if (!content) return '';
 
   let src = '';
@@ -34,10 +41,13 @@ export function generateLetterAvatar({ content, backgroundColor, backgroundGradi
   ctx.fillRect(0, 0, canvas.width, canvas.width);
 
   // Letter
-  ctx.font = `${Math.round(canvas.width / 2)}px Arial`;
+  const defaultRatio = 0.5, defaultFamily = 'Arial', defaultWeight = 400;
+  const fontSize = Math.round((font?.ratio || defaultRatio) * canvas.width);
+  ctx.font = `${font?.weight || defaultWeight} ${fontSize}px ${font?.family || defaultFamily}`;
   ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
   ctx.fillStyle = color || '#FFF';
-  ctx.fillText(letter.toUpperCase(), canvas.width / 2, canvas.width / 1.5);
+  ctx.fillText(letter.toUpperCase(), canvas.width / 2, canvas.width / 2);
 
   // Render
   src = canvas.toDataURL('image/jpeg');
