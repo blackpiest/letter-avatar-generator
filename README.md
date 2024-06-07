@@ -30,7 +30,7 @@ const avatar = generateLetterAvatar({
   content: "Potato",
   backgroundGradient: ["yellow", "orange"],
   size: 200,
-  font: { ratio: "0.8", weight: 600, family: "Tahoma" },
+  font: { ratio: 0.8, weight: 600, family: "Tahoma" },
 });
 
 <img src={avatar} alt="" />;
