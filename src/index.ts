@@ -47,7 +47,8 @@ export function generateLetterAvatar({ content, backgroundColor, backgroundGradi
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.fillStyle = color || '#FFF';
-  ctx.fillText(letter.toUpperCase(), canvas.width / 2, canvas.width / 2);
+  let { actualBoundingBoxAscent, actualBoundingBoxDescent } = ctx.measureText(letter.toUpperCase()); 
+  ctx.fillText(letter.toUpperCase(), canvas.width / 2, (canvas.height / 2) + ((actualBoundingBoxAscent - actualBoundingBoxDescent) / 2) - 3);
 
   // Render
   src = canvas.toDataURL('image/jpeg');
